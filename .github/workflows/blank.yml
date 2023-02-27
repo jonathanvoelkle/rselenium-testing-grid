@@ -9,10 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: r-lib/actions/setup-r@v2
-      - uses: r-lib/actions/setup-r@v2
-      - name: install `devtools`
-        run: |
-          R -e 'install.packages("remotes")'
       - name: install `RSelenium`
         run: |
-          R -e 'Sys.setenv("R_REMOTES_NO_ERRORS_FROM_WARNINGS" = "true")' -e 'remotes::install_github("ropensci/RSelenium")'
+          Rscript -e "install.packages('remotes')" -e "remotes::install_github('r-hub/sysreqs')"
